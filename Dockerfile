@@ -15,42 +15,37 @@ ENV HOMEBRIDGE_VERSION="1.0.4" \
 ENV NPM_ARGS="--global --quiet"
 
 # https://github.com/homebridge/homebridge
-RUN npm install \
-        ${NPM_ARGS} \
+RUN npm install ${NPM_ARGS} \
         --unsafe-perm \
         homebridge@${HOMEBRIDGE_VERSION}
 
 # https://github.com/ebaauw/homebridge-hue
-RUN npm install \
-        ${NPM_ARGS} \
+RUN npm install ${NPM_ARGS} \
         homebridge-hue@${HOMEBRIDGE_HUE_VERSION}
 
 # https://github.com/lukasroegner/homebridge-philips-hue-sync-box
-RUN npm install \
-        ${NPM_ARGS} \
+RUN npm install ${NPM_ARGS} \
         homebridge-philips-hue-sync-box@${HOMEBRIDGE_HUE_SYNC_VERSION}
 
 # https://github.com/arendruni/homebridge-pihole
-RUN npm install \
-        ${NPM_ARGS} \
+RUN npm install ${NPM_ARGS} \
         homebridge-pihole@${HOMEBRIDGE_PIHOLE_VERSION}
 
 # https://github.com/ebaauw/homebridge-rpi
-RUN npm install \
-        ${NPM_ARGS} \
+RUN npm install ${NPM_ARGS} \
         homebridge-rpi@${HOMEBRIDGE_RPI_VERSION}
 
 # https://github.com/nfarina/homebridge-sonos
-# RUN npm install \
-#         ${NPM_ARGS} \
-#         homebridge-sonos@${HOMEBRIDGE_SONOS_VERSION}
+RUN npm install ${NPM_ARGS} \
+        homebridge-sonos@${HOMEBRIDGE_SONOS_VERSION}
 
-RUN npm install \
-        ${NPM_ARGS} \
+# https://github.com/kienz/homebridge-speedtest-net#readme
+RUN npm install ${NPM_ARGS} \
+        --unsafe-perm \
         homebridge-speedtest-net@${HOMEBRIDGE_SPEEDTEST_VERSION}
 
-RUN npm install \
-        ${NPM_ARGS} \
+# https://github.com/werthdavid/homebridge-weather
+RUN npm install ${NPM_ARGS} \
         homebridge-weather@${HOMEBRIDGE_WEATHER_VERSION}
 
 WORKDIR /homebridge
