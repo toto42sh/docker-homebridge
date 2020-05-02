@@ -8,7 +8,9 @@ ENV HOMEBRIDGE_VERSION="1.0.4" \
     HOMEBRIDGE_HUE_SYNC_VERSION="0.3.0" \
     HOMEBRIDGE_PIHOLE_VERSION="0.2.0" \
     HOMEBRIDGE_RPI_VERSION="1.0.4" \
-    HOMEBRIDGE_SONOS_VERSION="0.3.1"
+    HOMEBRIDGE_SONOS_VERSION="0.3.1" \
+    HOMEBRIDGE_SPEEDTEST_VERSION="1.1.3" \
+    HOMEBRIDGE_WEATHER_VERSION="1.12.2"
 
 ENV NPM_ARGS="--global --quiet"
 
@@ -17,12 +19,6 @@ RUN npm install \
         ${NPM_ARGS} \
         --unsafe-perm \
         homebridge@${HOMEBRIDGE_VERSION}
-
-# https://github.com/oznu/homebridge-config-ui-x
-# RUN npm install \
-#         ${NPM_ARGS} \
-#         --unsafe-perm \
-#         homebridge-config-ui-x@${HOMEBRIDGE_CONFIG_VERSION}
 
 # https://github.com/ebaauw/homebridge-hue
 RUN npm install \
@@ -48,6 +44,14 @@ RUN npm install \
 # RUN npm install \
 #         ${NPM_ARGS} \
 #         homebridge-sonos@${HOMEBRIDGE_SONOS_VERSION}
+
+RUN npm install \
+        ${NPM_ARGS} \
+        homebridge-speedtest-net@${HOMEBRIDGE_SPEEDTEST_VERSION}
+
+RUN npm install \
+        ${NPM_ARGS} \
+        homebridge-weather@${HOMEBRIDGE_WEATHER_VERSION}
 
 WORKDIR /homebridge
 
