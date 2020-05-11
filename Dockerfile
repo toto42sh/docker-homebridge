@@ -5,8 +5,8 @@ ENV DEBIAN_FRONTEND="noninteractive"
 ENV HOMEBRIDGE_VERSION="1.0.4" \
     HOMEBRIDGE_CONFIG_VERSION="4.17.1" \
     HOMEBRIDGE_HUE_VERSION="0.11.64" \
-    HOMEBRIDGE_HUE_SYNC_VERSION="0.3.0" \
     HOMEBRIDGE_HTTP_TEMPERATURE_SENSOR_VERSION="1.0.9" \
+    HOMEBRIDGE_PHILIPS_HUE_SYNC_VERSION="0.3.0" \
     HOMEBRIDGE_PIHOLE_VERSION="0.2.0" \
     HOMEBRIDGE_RPI_VERSION="1.0.4" \
     HOMEBRIDGE_SONOS_VERSION="0.3.1" \
@@ -23,13 +23,13 @@ RUN npm install ${NPM_ARGS} \
 RUN npm install ${NPM_ARGS} \
         homebridge-hue@${HOMEBRIDGE_HUE_VERSION}
 
-# https://github.com/lukasroegner/homebridge-philips-hue-sync-box
-RUN npm install ${NPM_ARGS} \
-        homebridge-philips-hue-sync-box@${HOMEBRIDGE_HUE_SYNC_VERSION}
-
 # https://github.com/Supereg/homebridge-http-temperature-sensor
 RUN npm install ${NPM_ARGS} \
         homebridge-http-temperature-sensor@${HOMEBRIDGE_HTTP_TEMPERATURE_SENSOR_VERSION}
+
+# https://github.com/lukasroegner/homebridge-philips-hue-sync-box
+RUN npm install ${NPM_ARGS} \
+        homebridge-philips-hue-sync-box@${HOMEBRIDGE_PHILIPS_HUE_SYNC_VERSION}
 
 # https://github.com/arendruni/homebridge-pihole
 RUN npm install ${NPM_ARGS} \
