@@ -1,5 +1,5 @@
 IMAGE='toto42sh/homebridge'
-VERSION='1.0.4'
+VERSION='1.1.1'
 
 DOCKER_BUILD_CONTEXT='.'
 DOCKER_FILE_PATH='Dockerfile'
